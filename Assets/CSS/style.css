@@ -3,6 +3,8 @@
     --indent: 1.8rem;
     --text-size: 1.4rem;
     -moz-osx-font-smoothing: grayscale;
+    --backgroundcol: #f4f4f2;
+    --backgroundtrans: rgba(244, 244, 242, 0);
 }
 
 /* CSS based on Tufte */
@@ -17,7 +19,7 @@ body {
     padding-left: 12.5%;
     font-family: Article, et-book, Palatino, "Palatino Linotype",
         "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    background-color: #f4f4f2;
+    background-color: var(--backgroundcol);
     color: #111;
     max-width: 1400px;
     counter-reset: sidenote-counter;
