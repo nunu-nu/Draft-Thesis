@@ -151,6 +151,7 @@ div.epigraph > blockquote > footer > cite {
 
 blockquote {
     font-size: var(--text-size);
+    text-indent: 1rem !important;
 }
 
 blockquote p {
@@ -359,7 +360,7 @@ img {
 
 blockquote .sidenote,
 blockquote .marginnote {
-    margin-right: -82%;
+    margin-right: -65%;
     min-width: 59%;
     text-align: left;
 }
