@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Update the visibleSections array by checking each <section> element
   function updateTOC() {
     visibleSections = []; // Reset the array
-
     document.querySelectorAll("section").forEach((section, index) => {
       if (isVisible(section)) {
         visibleSections.push(index); // Add the index of the visible section
@@ -52,6 +51,20 @@ document.addEventListener("DOMContentLoaded", function () {
         p.classList.remove("current-section");
       }
     });
+    // Look if there are two 'p' tags in 'current-selection' and give them corresponding classes if there are;
+    //
+    currentSelectedP = [];
+    currentSelectedP = tocSection.querySelectorAll(".current-section");
+    console.log(currentSelectedP.length);
+    if (currentSelectedP.length == 2) {
+      currentSelectedP[0].classList.add("firstSection");
+      currentSelectedP[1].classList.add("secondSection");
+    } else {
+      pTags.forEach((p, index) => {
+        p.classList.remove("firstSection");
+        p.classList.remove("secondSection");
+      });
+    }
   }
 
   // Run updateTOC on scroll and on page load.

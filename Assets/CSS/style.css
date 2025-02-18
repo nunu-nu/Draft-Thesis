@@ -14,6 +14,7 @@ html {
 
 body {
     width: 87.5%;
+    max-width: 12rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 12.5%;
@@ -23,6 +24,13 @@ body {
     color: #111;
     max-width: 1400px;
     counter-reset: sidenote-counter;
+}
+
+article {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 /* /* Adds dark mode */
@@ -40,6 +48,7 @@ h1 {
     margin-bottom: 1rem;
     font-size: var(--text-size);
     line-height: 1;
+    display: none;
 }
 
 h2 {
@@ -535,9 +544,15 @@ label.margin-toggle:not(.sidenote-number) {
         width: 100%;
     }
 
-    /* Turn index number big to make it clickable */
+    /* Turn index number big on mobile to make it clickable */
     .sidenote-number:after {
-        content: "(" counter(sidenote-counter) ")";
+        /* EM SPACES content: " " counter(sidenote-counter) " "; */
+        content: counter(sidenote-counter);
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+        padding-top: 0.1rem;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
         /* font-size: 1rem;
         top: -0.5rem;
         left: 0.1rem; */
@@ -545,7 +560,9 @@ label.margin-toggle:not(.sidenote-number) {
             "sups" off,
             "onum" off,
             "lnum" on;
-        color: green;
+        color: #82af62;
+        background: green;
+        border-radius: 1rem;
     }
 
     /* full-width images when small */
