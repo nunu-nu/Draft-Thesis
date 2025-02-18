@@ -1,8 +1,10 @@
-#table-of-contents {
+/* TABLE OF CONTENTS */
+
+#letterform-through-lexicon {
     background: var(--backgroundcol);
 }
 
-#table-of-contents p {
+#letterform-through-lexicon p {
     transition: all 300ms cubic-bezier(0.56, 0.01, 0.31, 0.99);
     color: #c8c8c6;
     cursor: pointer;
@@ -15,11 +17,11 @@
     background: var(--backgroundcol);
 }
 
-#table-of-contents h2 {
+#letterform-through-lexicon h2 {
     background: var(--backgroundcol);
 }
 
-#table-of-contents p:hover {
+#letterform-through-lexicon p:hover {
     color: green;
     opacity: 100%;
 }
@@ -29,7 +31,7 @@
     /* transform: translate(0, 0.2rem); */
 }
 
-#table-of-contents {
+#letterform-through-lexicon {
     display: block;
     float: right;
     position: sticky;
@@ -43,7 +45,7 @@
     z-index: 2;
 }
 
-#table-of-contents .current-section {
+#letterform-through-lexicon .current-section {
     text-indent: 0.5rem;
     opacity: 100%;
     color: black;
@@ -68,14 +70,14 @@
 }
 
 /* DOESN'T WORK
-#table-of-contents .current-section:not(:has(~ .current-selection)) {
+#letterform-through-lexicon .current-section:not(:has(~ .current-selection)) {
     padding-bottom: 2rem;
 } */
 
-/* .table-of-contents > .current-selection {
+/* .letterform-through-lexicon > .current-selection {
     border: 1px solid red;
 }
-.table-of-contents > .current-selection ~ .current-selection {
+.letterform-through-lexicon > .current-selection ~ .current-selection {
     border: none;
 } */
 
@@ -86,13 +88,13 @@
 }
 
 @media (max-width: 1000px) {
-    #table-of-contents {
+    #letterform-through-lexicon {
         display: unset;
         float: unset;
         position: unset;
         width: unset;
     }
-    #table-of-contents p {
+    #letterform-through-lexicon p {
         text-indent: 0.5rem;
         opacity: 100%;
 
@@ -102,8 +104,13 @@
         background: var(--backgroundcol);
     }
 
-    #table-of-contents p:hover {
+    #letterform-through-lexicon p:hover {
         color: green;
         opacity: 100%;
     }
+}
+
+/* BIBLIOGRAPHY */
+#bibliography > p {
+    text-indent: 2rem hanging;
 }

@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTOCClasses(visibleSections);
   }
 
-  // Given an array of visible section indexes, update the <p> tags in #table-of-contents.
+  // Given an array of visible section indexes, update the <p> tags in #letterform-through-lexicon.
   function updateTOCClasses(visibleSections) {
     // Grab the Table of Contents element
-    const tocSection = document.getElementById("table-of-contents");
+    const tocSection = document.getElementById("letterform-through-lexicon");
     if (!tocSection) {
-      console.warn("No element with id 'table-of-contents' found.");
+      console.warn("No element with id 'letterform-through-lexicon' found.");
       return;
     }
 
@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // Function that sets up click handlers on TOC <p> tags
   function bindTOCLinks() {
-    const tocSection = document.getElementById("table-of-contents");
+    const tocSection = document.getElementById("letterform-through-lexicon");
     if (!tocSection) {
-      console.warn("No element with id 'table-of-contents' found.");
+      console.warn("No element with id 'letterform-through-lexicon' found.");
       return;
     }
 
@@ -117,9 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Hide sidenotes under TOC
 /* function updateSidenotesPosition() {
-  const toc = document.getElementById("table-of-contents");
+  const toc = document.getElementById("letterform-through-lexicon");
   if (!toc) {
-    console.warn("No element with ID 'table-of-contents' found.");
+    console.warn("No element with ID 'letterform-through-lexicon' found.");
     return;
   }
 
