@@ -173,3 +173,10 @@ body {
 #bibliography > p {
     text-indent: 2rem hanging;
 }
+
+/* Break links */
+#bibliography > a {
+    a {
+        word-break: break-all;
+    }
+}
