@@ -52,12 +52,14 @@ h1 {
 }
 
 h2 {
-    font-style: italic;
     font-weight: 400;
     font-size: var(--text-size);
     margin-top: 1.9rem;
     margin-bottom: 1.3rem;
     line-height: 1;
+    /* font-style: italic;  one or the other */
+    font-variant-caps: small-caps;
+    letter-spacing: 0.07rem;
 }
 
 h3 {

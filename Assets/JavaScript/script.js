@@ -1,5 +1,6 @@
 // built reaction to current scroll to TOC
 let sectionTolerance = 150;
+//  usage: await delay(5000);
 document.addEventListener("DOMContentLoaded", function () {
   let visibleSections = []; // Array to store visible section indexes
 
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // build links to scroll
 //
+
 document.addEventListener("DOMContentLoaded", function () {
   // Function that sets up click handlers on TOC <p> tags
   function bindTOCLinks() {
