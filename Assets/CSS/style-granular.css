@@ -175,7 +175,7 @@ body {
 }
 
 /* Break links */
-#bibliography > a {
+#bibliography a {
     a {
         word-break: break-all;
     }
