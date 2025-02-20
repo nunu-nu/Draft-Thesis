@@ -1,5 +1,6 @@
 // built reaction to current scroll to TOC
 let sectionTolerance = 150;
+let delayBeforeTOCupdate = 80;
 //  usage: await delay(5000);
 document.addEventListener("DOMContentLoaded", function () {
   let visibleSections = []; // Array to store visible section indexes
@@ -68,8 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Run updateTOC on scroll and on page load.
-  window.addEventListener("scroll", updateTOC);
+  let scrollTimeout;
+
+  document.addEventListener("scroll", function () {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateTOC, delayBeforeTOCupdate); // Update after 300ms of no scrolling
+  });
+
   updateTOC();
 });
 
