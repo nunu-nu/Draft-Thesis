@@ -3,7 +3,7 @@
     --indent: 1.8rem;
     --text-size: 1.4rem;
     -moz-osx-font-smoothing: grayscale;
-    --backgroundcol: #f4f4f2;
+    --backgroundcol: RGBA(244, 244, 242, 100);
     --backgroundtrans: rgba(244, 244, 242, 0);
 }
 

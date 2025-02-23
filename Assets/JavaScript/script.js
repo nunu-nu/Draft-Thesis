@@ -1,6 +1,8 @@
 // built reaction to current scroll to TOC
 let sectionTolerance = 150;
-let delayBeforeTOCupdate = 80;
+// let delayBeforeTOCupdate = 80;
+let scrooooooling = false;
+const IM_STILL_UPDATING_TIME_ = 400;
 //  usage: await delay(5000);
 document.addEventListener("DOMContentLoaded", function () {
   let visibleSections = []; // Array to store visible section indexes
@@ -47,33 +49,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Loop through each <p> tag and update its class based on its index.
     pTags.forEach((p, index) => {
       // If the current index is in the visibleSections array, add the class.
-      if (visibleSections.indexOf(index + 1) !== -1) {
+      if (visibleSections.indexOf(index + 1) != -1) {
         p.classList.add("current-section");
       } else {
         p.classList.remove("current-section");
       }
     });
-    // Look if there are two 'p' tags in 'current-selection' and give them corresponding classes if there are;
-    //
-    currentSelectedP = [];
-    currentSelectedP = tocSection.querySelectorAll(".current-section");
-    console.log(currentSelectedP.length);
-    if (currentSelectedP.length == 2) {
-      currentSelectedP[0].classList.add("firstSection");
-      currentSelectedP[1].classList.add("secondSection");
-    } else {
-      pTags.forEach((p, index) => {
-        p.classList.remove("firstSection");
-        p.classList.remove("secondSection");
-      });
-    }
   }
 
   let scrollTimeout;
 
   document.addEventListener("scroll", function () {
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(updateTOC, delayBeforeTOCupdate); // Update after 300ms of no scrolling
+    if (!scrooooooling) updateTOC();
+    // scrollTimeout = setTimeout(updateTOC, delayBeforeTOCupdate); // Update after 300ms of no scrolling
   });
 
   updateTOC();
@@ -106,7 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (sections[targetSectionIndex]) {
           // Scroll smoothly to the target section
+          scrooooooling = true;
           sections[targetSectionIndex].scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => (scrooooooling = false), IM_STILL_UPDATING_TIME_);
         } else {
           console.warn(
             "No corresponding section found for index",

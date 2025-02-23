@@ -1,19 +1,13 @@
 /* TABLE OF CONTENTS */
 
-/* DO IF TIME YES TO MAKE BORDER TRANSITION ON WINDOW RESIZE SMOOTHER, WITHOUT JANKY WIDTH FROM 0PX to 1PX */
-/* --color: 240, 240, 240;
-}
-
-body {
-  color: #000;
-  background-color: #000;
-}
-
-#element {
-  background-color: rgba(var(--color), 0.8); */
-
 #letterform-through-lexicon {
-    background: var(--backgroundcol);
+    background: linear-gradient(
+        0deg,
+        var(--backgroundtrans) 0%,
+        var(--backgroundcol) 16%,
+        var(--backgroundcol) 95%,
+        var(--backgroundtrans) 100%
+    );
 }
 
 #letterform-through-lexicon h2 {
@@ -31,8 +25,8 @@ body {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     text-indent: 2rem;
-    background: var(--backgroundcol);
-    outline: var(--backgroundcol) 0px solid;
+    /* background: var(--backgroundcol); */
+    outline: var(--backgroundtrans) 1px solid;
 }
 
 #letterform-through-lexicon h2 {
@@ -72,37 +66,21 @@ body {
 }
 
 /* works but only somewhat  */
-.current-section {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
+@media (min-width: 1000px) {
+    #letterform-through-lexicon {
+        padding-bottom: 6rem;
+    }
 
-.firstSection {
-    padding-top: 0.9rem !important;
-    padding-bottom: 0.1rem !important;
-}
+    .current-section {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
 
-.secondSection {
-    padding-top: 0.1rem !important;
-    padding-bottom: 0.9rem !important;
-}
-
-/* DOESN'T WORK
-#letterform-through-lexicon .current-section:not(:has(~ .current-selection)) {
-    padding-bottom: 2rem;
-} */
-
-/* .letterform-through-lexicon > .current-selection {
-    border: 1px solid red;
-}
-.letterform-through-lexicon > .current-selection ~ .current-selection {
-    border: none;
-} */
-
-.under-toc {
-    opacity: 0%;
-    /* prevent links from opening when under TOC */
-    pointer-events: none;
+    .current-section + .current-section {
+        margin-top: -0.9rem !important;
+        padding-top: 0.1rem !important;
+        padding-bottom: 0.9rem !important;
+    }
 }
 
 @media (max-width: 999px) and (min-width: 761px) {
