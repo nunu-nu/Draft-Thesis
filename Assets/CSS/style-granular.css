@@ -12,6 +12,7 @@
 
 #letterform-through-lexicon h2 {
     font-variant-caps: unset;
+    font-feature-settings: "smcp" on;
     letter-spacing: 0rem;
 }
 
@@ -58,11 +59,16 @@
 }
 
 #letterform-through-lexicon .current-section {
-    text-indent: 0.5rem;
+    text-indent: 0rem;
     opacity: 100%;
     color: black;
 
     /* outline: 1px solid black; */
+}
+
+/* make these invisible while not scrolled on them */
+#letterform-through-lexicon p:nth-child(8) ~ p {
+    display:none;
 }
 
 /* works but only somewhat  */
@@ -74,6 +80,10 @@
     .current-section {
         padding-top: 1rem !important;
         padding-bottom: 1rem !important;
+    }
+
+    .current-section:nth-of-type(1) {
+        padding-top: 0rem !important;
     }
 
     .current-section + .current-section {

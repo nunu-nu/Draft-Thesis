@@ -66,7 +66,6 @@ h3 {
     font-style: italic;
     font-weight: 400;
     font-size: var(--text-size);
-    margin-top: 1.9rem;
     margin-bottom: 1.3rem;
     line-height: 1;
     /* text-indent: var(--indent); */
@@ -107,6 +106,11 @@ article {
 section {
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.level3 {
+    padding-top: 0.1rem;
+    padding-bottom: 0.5rem;
 }
 
 p,
@@ -248,9 +252,9 @@ a:visited {
     text-shadow: unset;
 }
 
-a:link,
+/* a:link,
 .tufte-underline,
-.hover-tufte-underline:hover {
+.hover-tufte-underline:hover { */
     /* text-decoration: none;
     background:
         -webkit-linear-gradient(#fffff8, #fffff8),
@@ -289,7 +293,7 @@ a:link,
         0% 93%,
         100% 93%,
         0% 93%; */
-}
+/* } */
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     a:link,
@@ -528,7 +532,7 @@ label.margin-toggle:not(.sidenote-number) {
         left: 1rem;
         clear: both;
         width: 95%;
-        margin: 1rem 2.5%;
+        margin: 2rem 2.5% 1rem 1rem;
         vertical-align: baseline;
         position: relative;
     }
@@ -549,6 +553,7 @@ label.margin-toggle:not(.sidenote-number) {
     /* Turn index number big on mobile to make it clickable */
     .sidenote-number:after {
         /* EM SPACES content: " " counter(sidenote-counter) " "; */
+        font-size: 1.2rem;
         content: counter(sidenote-counter);
         padding-left: 0.9rem;
         padding-right: 0.9rem;
@@ -562,8 +567,8 @@ label.margin-toggle:not(.sidenote-number) {
             "sups" off,
             "onum" off,
             "lnum" on;
-        color: #82af62;
-        background: green;
+        color: var(--backgroundcol);
+        background: black;
         border-radius: 1rem;
     }
 
@@ -572,4 +577,8 @@ label.margin-toggle:not(.sidenote-number) {
         width: 100% !important;
         height: auto !important;
     }
+}
+
+.smallcaps {
+    font-feature-settings: "smcp" on, "c2sc" on;
 }
