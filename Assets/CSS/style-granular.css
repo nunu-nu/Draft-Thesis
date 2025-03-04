@@ -175,7 +175,6 @@
 
 /* Break links to avoid messing up page width on mobile */
 #bibliography a {
-    a {
         word-break: break-all;
-    }
+        overflow-wrap: break-word;
 }
