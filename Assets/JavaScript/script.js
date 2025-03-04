@@ -75,13 +75,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function that sets up click handlers on TOC <p> tags
   function bindTOCLinks() {
     const tocSection = document.getElementById("letterform-through-lexicon");
+    const pTags = tocSection.querySelectorAll("p");
     if (!tocSection) {
       console.warn("No element with id 'letterform-through-lexicon' found.");
       return;
     }
 
     // Get all <p> tags inside the TOC
-    const pTags = tocSection.querySelectorAll("p");
+    
 
     // Bind a click event on each <p> tag
     pTags.forEach((p, index) => {
@@ -112,37 +113,65 @@ document.addEventListener("DOMContentLoaded", function () {
   bindTOCLinks();
 });
 
-// Hide sidenotes when touching table of contents
 
-// Hide sidenotes under TOC
-/* function updateSidenotesPosition() {
-  const toc = document.getElementById("letterform-through-lexicon");
-  if (!toc) {
-    console.warn("No element with ID 'letterform-through-lexicon' found.");
-    return;
+// MOBILE TABLE OF CONTENTS
+document.addEventListener("DOMContentLoaded", function () {
+const tableOfContents = document.getElementById("letterform-through-lexicon");
+console.log(tableOfContents);
+const title = tableOfContents.querySelector("h2");
+const paragraphs = tableOfContents.querySelectorAll("p");
+const activeClass = "showTOC";
+
+// Function to toggle the class on all <p> elements
+function toggleParagraphs() {
+  const isActive = [...paragraphs].some(p => p.classList.contains(activeClass));
+
+  if (isActive) {
+      // Remove class from all <p> elements
+      paragraphs.forEach(p => p.classList.remove(activeClass));
+  } else {
+      // Add class to all <p> elements
+      paragraphs.forEach(p => p.classList.add(activeClass));
   }
-
-  // Get the bottom position of the TOC relative to the viewport
-  const rect = toc.getBoundingClientRect();
-  const tocBottom = rect.bottom; // The bottom of the TOC
-
-  // Get all elements with the class "sidenote"
-  const sidenotes = document.querySelectorAll(".sidenote");
-
-  // Loop through each sidenote
-  sidenotes.forEach((sidenote) => {
-    const sidenoteTop = sidenote.getBoundingClientRect().top;
-
-    // If the sidenote is below the bottom of the TOC, add the class "under-toc"
-    if (sidenoteTop - 50 > tocBottom) {
-      sidenote.classList.remove("under-toc");
-    } else {
-      sidenote.classList.add("under-toc");
-    }
-  });
 }
 
-// Call the function on page load and on scroll to track changes
-window.addEventListener("scroll", updateSidenotesPosition);
-document.addEventListener("DOMContentLoaded", updateSidenotesPosition);
-*/
+// Function to handle clicks outside the tableOfContents
+function handleClickOutside(event) {
+  // If the clicked target is NOT inside the tableOfContents and is not a <p>, remove the class
+  if (!tableOfContents.contains(event.target) || event.target.tagName === "H2") {
+      paragraphs.forEach(p => p.classList.remove(activeClass));
+  }
+}
+
+// Attach event listener to the h2
+title.addEventListener("click", (event) => {
+console.log("abc");
+  event.stopPropagation(); // Prevent the document event from immediately firing
+  toggleParagraphs();
+});
+
+// Attach event listener to the document to detect clicks outside the tableOfContents
+document.addEventListener("click", handleClickOutside);
+
+    // Close menu on mobile after click
+
+    let timeoutId; // Stores the timeout reference
+
+    function removeClassAfterDelay() {
+        // Clear any existing timeout before setting a new one
+        clearTimeout(timeoutId);
+
+        // Remove the class after 3 seconds (3000ms)
+        timeoutId = setTimeout(() => {
+            paragraphs.forEach(p => p.classList.remove(activeClass));
+        }, IM_STILL_UPDATING_TIME_);
+    }
+
+    // Click event for each <p> to start the delay
+    paragraphs.forEach(p => {
+        p.addEventListener("click", (event) => {
+            event.stopPropagation(); // Prevent it from being removed immediately by document click
+            removeClassAfterDelay();
+        });
+    });
+})

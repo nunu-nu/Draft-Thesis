@@ -12,6 +12,10 @@ html {
     font-size: 15px;
 }
 
+span {
+    display:inline;
+}
+
 body {
     width: 87.5%;
     max-width: 12rem;
