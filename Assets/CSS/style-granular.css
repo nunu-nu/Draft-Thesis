@@ -1,4 +1,7 @@
 /* TABLE OF CONTENTS */
+:root {
+    padding-top: var(--text-size)
+}
 
 #letterform-through-lexicon {
     background: linear-gradient(
@@ -52,7 +55,6 @@
     position: -webkit-sticky;
     left: 1rem;
     clear: both;
-    vertical-align: baseline;
     margin-top: 0;
     width: 42.3%;
     z-index: 2;
@@ -115,11 +117,6 @@
 }
 
 @media (max-width: 1000px) {
-    section {
-        scroll-margin-top: 550px;
-        scroll-margin-top: calc( calc( 1.3rem + 4 vh ) * 8px );
-    }
-
     #letterform-through-lexicon {
         margin-top: 0;
         padding-top: 0;

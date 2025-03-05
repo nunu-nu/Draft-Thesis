@@ -8,6 +8,41 @@
     --backgroundtrans: rgba(244, 244, 242, 0);
 }
 
+/* William r+i */
+@font-face {
+    font-family: "William";
+    src: url(../fonts/william-r.woff2);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "William";
+    src: url(../fonts/william-i.woff2);
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+    font-feature-settings: "swsh" 1;
+}
+
+/* EBG r+i */
+@font-face {
+    font-family: "EB Garamond";
+    src: url(../fonts/EBGaramond-Regular.woff2);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "EB Garamond";
+    src: url(../fonts/EBGaramond-Italic.woff2);
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+    font-feature-settings: "swsh" 1;
+}
+
 /* CSS based on Tufte */
 html {
     font-size: 15px;
@@ -238,7 +273,6 @@ figcaption {
     margin-bottom: 0;
     font-size: 0.9rem;
     line-height: 1.45;
-    vertical-align: baseline;
     position: relative;
     max-width: 55%;
 }
@@ -520,6 +554,7 @@ label.margin-toggle:not(.sidenote-number) {
     blockquote p,
     blockquote footer {
         width: 100%;
+        margin-right: 0;
     }
 
     label.margin-toggle:not(.sidenote-number) {
@@ -539,7 +574,6 @@ label.margin-toggle:not(.sidenote-number) {
         clear: both;
         width: 95%;
         margin: 2rem 2.5% 1rem 1rem;
-        vertical-align: baseline;
         position: relative;
     }
 
@@ -582,6 +616,7 @@ label.margin-toggle:not(.sidenote-number) {
         width: 100% !important;
         height: auto !important;
     }
+
 }
 
 @media (max-width: 1000px) {
