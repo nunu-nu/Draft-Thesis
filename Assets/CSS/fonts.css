@@ -1,14 +1,14 @@
 /* Font Article r+i */
 @font-face {
     font-family: "Article";
-    src: url(../Fonts/ArticleText-Regular.woff2);
+    src: url(../Fonts/WilliamTextL-Regular.woff2);
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "Article";
-    src: url(../Fonts/ArticleText-RegularItalic.woff2);
+    src: url(../Fonts/WilliamTextL-RegularItalic.woff2);
     font-weight: normal;
     font-style: italic;
     font-display: swap;
