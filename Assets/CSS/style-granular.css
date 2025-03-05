@@ -122,6 +122,7 @@
         float: unset;
         position: sticky;
         width: unset;
+        overflow:hidden;
     }
 
     /* stop JS TOC behaviour in mobile view */

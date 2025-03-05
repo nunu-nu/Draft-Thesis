@@ -1,15 +1,33 @@
-/* Font Article r+i */
+/* William r+i */
 @font-face {
-    font-family: "Article";
+    font-family: "William";
     src: url(../Fonts/WilliamTextL-Regular.woff2);
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: "Article";
+    font-family: "William";
     src: url(../Fonts/WilliamTextL-RegularItalic.woff2);
     font-weight: normal;
     font-style: italic;
     font-display: swap;
+    font-feature-settings: "swsh" 1;
+}
+
+/* EBG r+i */
+@font-face {
+    font-family: "EB Garamond";
+    src: url(../Fonts/EBGaramond-Regular.woff2);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "EB Garamond";
+    src: url(../Fonts/EBGaramond-Italic.woff2);
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+    font-feature-settings: "swsh" 1;
 }

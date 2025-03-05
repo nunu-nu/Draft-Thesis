@@ -2,7 +2,7 @@
 let sectionTolerance = 150;
 // let delayBeforeTOCupdate = 80;
 let scrooooooling = false;
-const IM_STILL_UPDATING_TIME_ = 400;
+const IM_STILL_UPDATING_TIME_ = 0;
 //  usage: await delay(5000);
 document.addEventListener("DOMContentLoaded", function () {
   let visibleSections = []; // Array to store visible section indexes
