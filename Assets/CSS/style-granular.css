@@ -16,8 +16,7 @@
     font-style: italic;
     letter-spacing: 0rem;
 }
-#letterform-through-lexicon h2 {
-}
+
 #letterform-through-lexicon h2::first-letter {
     font-feature-settings: "swsh" 1;
 }
@@ -101,11 +100,11 @@
 
 @media (max-width: 999px) and (min-width: 761px) {
     #letterform-through-lexicon p {
-        width: 85%;
+        width: 55%;
     }
 
     #letterform-through-lexicon h2 {
-        width: 85%;
+        width: 55%;
     }
 }
 
@@ -116,13 +115,20 @@
 }
 
 @media (max-width: 1000px) {
+    section {
+        scroll-margin-top: 550px;
+        scroll-margin-top: calc( calc( 1.3rem + 4 vh ) * 8px );
+    }
+
     #letterform-through-lexicon {
+        margin-top: 0;
+        padding-top: 0;
         background: none;
         display:block;
         float: unset;
         position: sticky;
+        top: 1rem;
         width: unset;
-        overflow:hidden;
     }
 
     /* stop JS TOC behaviour in mobile view */
@@ -133,21 +139,12 @@
         background: black !important;
     }
 
-    #letterform-through-lexicon {
-        position: sticky;
-    }
-
     #letterform-through-lexicon p {
         outline: 1px solid black;
         padding-top: 2vh;
         padding-bottom: 2vh;
         text-indent: 0rem;
         color: black;
-    }
-
-    #letterform-through-lexicon {
-        position: sticky;
-        top: 1rem;
     }
 
     #letterform-through-lexicon h2 {
@@ -167,7 +164,7 @@
 
     .showTOC {
         display:block !important;
-        position:sticky;
+        position:relative;
     }
 
     .addOpacity {

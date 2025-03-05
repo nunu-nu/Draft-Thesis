@@ -19,6 +19,7 @@ span {
 
 body {
     width: 87.5%;
+    font-feature-settings: "swsh" 1;
     max-width: 12rem;
     margin-left: auto;
     margin-right: auto;
@@ -108,6 +109,7 @@ article {
 }
 
 section {
+    scroll-margin-top: 100px;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -557,7 +559,7 @@ label.margin-toggle:not(.sidenote-number) {
     /* Turn index number big on mobile to make it clickable */
     .sidenote-number:after {
         /* EM SPACES content: " " counter(sidenote-counter) " "; */
-        font-size: var(--text-size);
+        font-size: calc( var(--text-size) * 0.9);
         content: counter(sidenote-counter);
         padding-left: 0.9rem;
         padding-right: 0.9rem;
@@ -581,6 +583,13 @@ label.margin-toggle:not(.sidenote-number) {
         height: auto !important;
     }
 }
+
+@media (max-width: 1000px) {
+    section {
+    scroll-margin-top: calc( calc( var(--text-size) + 4 vh ) * 7 );
+}
+}
+
 
 .smallcaps {
     font-feature-settings: "smcp" on, "c2sc" on;
