@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Get all <p> tags inside the TOC
-    
 
     // Bind a click event on each <p> tag
     pTags.forEach((p, index) => {
@@ -105,74 +104,112 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           console.warn(
             "No corresponding section found for index",
-            targetSectionIndex,
+            targetSectionIndex
           );
         }
       });
     });
+
+    // Navigate via keys
+    document.querySelectorAll("section:first-of-type p").forEach((p, index) => {
+      p.addEventListener("click", () => {
+        console.log(`Paragraph ${index + 1} clicked`);
+        addNumberIndicators(); // Add indicators to all <p> inside the first <section>
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      let key = parseInt(event.key, 10); // Convert pressed key to number
+
+      if (key >= 1 && key <= 9) {
+        let paragraphs = document.querySelectorAll("section:first-of-type p");
+
+        if (paragraphs[key - 1]) {
+          paragraphs[key - 1].click(); // Trigger click event
+        }
+      }
+    });
+
+    function addNumberIndicators() {
+      document
+        .querySelectorAll("section:first-of-type p")
+        .forEach((p, index) => {
+          // Check if the span already exists to prevent duplicates
+          if (!p.querySelector(".key-indicator")) {
+            let span = document.createElement("span");
+            span.textContent = ` ${index + 1}`;
+            span.classList.add("key-indicator");
+            p.appendChild(span);
+          }
+        });
+    }
   }
 
   // Call the function on page load
   bindTOCLinks();
 });
 
-
 // MOBILE TABLE OF CONTENTS
 document.addEventListener("DOMContentLoaded", function () {
-const tableOfContents = document.getElementById("letterform-through-lexicon");
-const title = tableOfContents.querySelector("h2");
-const paragraphs = tableOfContents.querySelectorAll("p");
-const activeClass = "showTOC";
+  const tableOfContents = document.getElementById("letterform-through-lexicon");
+  const title = tableOfContents.querySelector("h2");
+  const paragraphs = tableOfContents.querySelectorAll("p");
+  const activeClass = "showTOC";
 
-// Function to toggle the class on all <p> elements
-function toggleParagraphs() {
-  const isActive = [...paragraphs].some(p => p.classList.contains(activeClass));
+  // Function to toggle the class on all <p> elements
+  function toggleParagraphs() {
+    const isActive = [...paragraphs].some((p) =>
+      p.classList.contains(activeClass)
+    );
 
-  if (isActive) {
+    if (isActive) {
       // Remove class from all <p> elements
-      paragraphs.forEach(p => p.classList.remove(activeClass));
-  } else {
+      paragraphs.forEach((p) => p.classList.remove(activeClass));
+    } else {
       // Add class to all <p> elements
-      paragraphs.forEach(p => p.classList.add(activeClass));
-  }
-}
-
-// Function to handle clicks outside the tableOfContents
-function handleClickOutside(event) {
-  // If the clicked target is NOT inside the tableOfContents and is not a <p>, remove the class
-  if (!tableOfContents.contains(event.target) || event.target.tagName === "H2") {
-      paragraphs.forEach(p => p.classList.remove(activeClass));
-  }
-}
-
-// Attach event listener to the h2
-title.addEventListener("click", (event) => {
-  event.stopPropagation(); // Prevent the document event from immediately firing
-  toggleParagraphs();
-});
-
-// Attach event listener to the document to detect clicks outside the tableOfContents
-document.addEventListener("click", handleClickOutside);
-
-    // Close menu on mobile after click
-
-    let timeoutId; // Stores the timeout reference
-
-    function removeClassAfterDelay() {
-        // Clear any existing timeout before setting a new one
-        clearTimeout(timeoutId);
-
-        // Remove the class after 3 seconds (3000ms)
-        timeoutId = setTimeout(() => {
-            paragraphs.forEach(p => p.classList.remove(activeClass));
-        }, smallDelayAfterClickOnTableOfContents);
+      paragraphs.forEach((p) => p.classList.add(activeClass));
     }
+  }
 
-    // Click event for each <p> to start the delay
-    paragraphs.forEach(p => {
-        p.addEventListener("click", (event) => {
-            event.stopPropagation(); // Prevent it from being removed immediately by document click
-            removeClassAfterDelay();
-        });
+  // Function to handle clicks outside the tableOfContents
+  function handleClickOutside(event) {
+    // If the clicked target is NOT inside the tableOfContents and is not a <p>, remove the class
+    if (
+      !tableOfContents.contains(event.target) ||
+      event.target.tagName === "H2"
+    ) {
+      paragraphs.forEach((p) => p.classList.remove(activeClass));
+    }
+  }
+
+  // Attach event listener to the h2
+  title.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent the document event from immediately firing
+    toggleParagraphs();
+  });
+
+  // Attach event listener to the document to detect clicks outside the tableOfContents
+  document.addEventListener("click", handleClickOutside);
+
+  // Close menu on mobile after click
+
+  let timeoutId; // Stores the timeout reference
+
+  function removeClassAfterDelay() {
+    // Clear any existing timeout before setting a new one
+    clearTimeout(timeoutId);
+
+    // Remove the class after 3 seconds (3000ms)
+    timeoutId = setTimeout(() => {
+      paragraphs.forEach((p) => p.classList.remove(activeClass));
+    }, smallDelayAfterClickOnTableOfContents);
+  }
+
+  // Click event for each <p> to start the delay
+  paragraphs.forEach((p) => {
+    p.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevent it from being removed immediately by document click
+      removeClassAfterDelay();
     });
-})
+  });
+});

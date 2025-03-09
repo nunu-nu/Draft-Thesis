@@ -183,3 +183,14 @@
 #bibliography h3 {
     font-feature-settings: "swsh" 0 !important;
 }
+
+
+
+.key-indicator {
+    font-feature-settings: "sups" 1;
+}
+@media (max-width: 760px) {
+    .key-indicator {
+        display:none;
+    }
+}
