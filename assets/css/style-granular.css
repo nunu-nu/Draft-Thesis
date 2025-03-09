@@ -179,3 +179,7 @@
         word-break: break-all;
         overflow-wrap: break-word;
 }
+
+#bibliography h3 {
+    font-feature-settings: "swsh" 0 !important;
+}

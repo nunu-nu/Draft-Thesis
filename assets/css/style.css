@@ -547,7 +547,8 @@ label.margin-toggle:not(.sidenote-number) {
     }
 
     blockquote {
-        margin-left: 1.5em;
+        /* MAKE BLOCK QUOTE ALIGNED WITH TEXT BLOCK ON MOBILE */
+        margin-left: 0em;
         margin-right: 0em;
     }
 
@@ -555,6 +556,8 @@ label.margin-toggle:not(.sidenote-number) {
     blockquote footer {
         width: 100%;
         margin-right: 0;
+        float: left;
+        margin-block-start: 0rem;
     }
 
     label.margin-toggle:not(.sidenote-number) {
@@ -570,10 +573,10 @@ label.margin-toggle:not(.sidenote-number) {
     .margin-toggle:checked + .marginnote {
         display: block;
         float: left;
-        left: 1rem;
+        left: 0rem;
         clear: both;
         width: 95%;
-        margin: 2rem 2.5% 1rem 1rem;
+        margin: 2rem 0rem 1rem 1.8rem;
         position: relative;
     }
 
@@ -622,10 +625,19 @@ label.margin-toggle:not(.sidenote-number) {
 @media (max-width: 1000px) {
     section {
     scroll-margin-top: calc( calc( var(--text-size) + 4 vh ) * 7 );
-}
+    scroll-margin-top: 550px;
+    }
 }
 
 
 .smallcaps {
     font-feature-settings: "smcp" on, "c2sc" on;
+}
+
+figure + p {
+    text-indent: 0;
+}
+
+#extras h2 + p {
+    padding-bottom: 0.5rem;
 }

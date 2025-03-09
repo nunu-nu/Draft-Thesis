@@ -2,7 +2,8 @@
 let sectionTolerance = 150;
 // let delayBeforeTOCupdate = 80;
 let scrooooooling = false;
-const IM_STILL_UPDATING_TIME_ = 400;
+const IM_STILL_UPDATING_TIME_ = 800;
+const smallDelayAfterClickOnTableOfContents = 20;
 //  usage: await delay(5000);
 document.addEventListener("DOMContentLoaded", function () {
   let visibleSections = []; // Array to store visible section indexes
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    console.log("Visible sections:", visibleSections); // Debug output
+    // console.log("Visible sections:", visibleSections); // Debug output
 
     // Now update the <p> tags inside the Table of Contents
     updateTOCClasses(visibleSections);
@@ -64,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!scrooooooling) updateTOC();
     // scrollTimeout = setTimeout(updateTOC, delayBeforeTOCupdate); // Update after 300ms of no scrolling
   });
+
+  if (!scrooooooling) setInterval(updateTOC, 1000);
 
   updateTOC();
 });
@@ -117,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // MOBILE TABLE OF CONTENTS
 document.addEventListener("DOMContentLoaded", function () {
 const tableOfContents = document.getElementById("letterform-through-lexicon");
-console.log(tableOfContents);
 const title = tableOfContents.querySelector("h2");
 const paragraphs = tableOfContents.querySelectorAll("p");
 const activeClass = "showTOC";
@@ -145,7 +147,6 @@ function handleClickOutside(event) {
 
 // Attach event listener to the h2
 title.addEventListener("click", (event) => {
-console.log("abc");
   event.stopPropagation(); // Prevent the document event from immediately firing
   toggleParagraphs();
 });
@@ -164,7 +165,7 @@ document.addEventListener("click", handleClickOutside);
         // Remove the class after 3 seconds (3000ms)
         timeoutId = setTimeout(() => {
             paragraphs.forEach(p => p.classList.remove(activeClass));
-        }, IM_STILL_UPDATING_TIME_);
+        }, smallDelayAfterClickOnTableOfContents);
     }
 
     // Click event for each <p> to start the delay
