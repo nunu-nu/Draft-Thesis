@@ -166,8 +166,8 @@ ul {
 /* indent to all paragraphs */
 p {
   text-indent: var(--indent);
-  margin-top: 0.6rem;
-  margin-bottom: 0.6rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   padding-right: 0;
   vertical-align: baseline;
 }
@@ -653,4 +653,5 @@ blockquote + p {
 blockquote {
   /* MAKE BLOCK QUOTE ALIGNED WITH TEXT BLOCK ON MOBILE */
   margin-left: var(--indent) !important;
+  margin-bottom: 1rem;
 }
