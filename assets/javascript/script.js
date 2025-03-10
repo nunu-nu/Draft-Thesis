@@ -113,8 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Navigate via keys
     document.querySelectorAll("section:first-of-type p").forEach((p, index) => {
       p.addEventListener("click", () => {
-        console.log(`Paragraph ${index + 1} clicked`);
-        addNumberIndicators(); // Add indicators to all <p> inside the first <section>
+        // console.log(`Paragraph ${index + 1} clicked`);
       });
     });
 
@@ -126,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (paragraphs[key - 1]) {
           paragraphs[key - 1].click(); // Trigger click event
+          addNumberIndicators();
         }
       }
     });

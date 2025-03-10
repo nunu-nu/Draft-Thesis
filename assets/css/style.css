@@ -401,7 +401,7 @@ img {
 
 .sidenote:before {
   content: counter(sidenote-counter) ". ";
-  font-size: 1rem;
+  /* font-size: 1rem; */
   /* top: -0.5rem; */
 }
 
@@ -503,8 +503,10 @@ label.margin-toggle:not(.sidenote-number) {
 /* Small adjustments to text size for better line length */
 @media (max-width: 1000px) {
   :root {
-    --text-size: 1.1rem;
-    --line-height: 1.8rem;
+    --text-size: 1.14rem;
+    --line-height: 1.81rem;
+    /* --text-size: 1.1rem;
+    --line-height: 1.8rem; */
   }
 }
 
@@ -616,8 +618,8 @@ label.margin-toggle:not(.sidenote-number) {
         top: -0.5rem;
         left: 0.1rem; */
     font-feature-settings: "sups" off, "onum" off, "lnum" on;
-    color: var(--backgroundcol);
-    background: black;
+    color: black;
+    background: #c8c8c6;
     border-radius: 1rem;
   }
 
