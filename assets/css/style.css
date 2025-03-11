@@ -8,41 +8,6 @@
   --backgroundtrans: rgba(244, 244, 242, 0);
 }
 
-/* William r+i */
-@font-face {
-  font-family: "William";
-  src: url(../fonts/william-r.woff2);
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "William";
-  src: url(../fonts/william-i.woff2);
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-  font-feature-settings: "swsh" 1;
-}
-
-/* EBG r+i */
-@font-face {
-  font-family: "EB Garamond";
-  src: url(../fonts/EBGaramond-Regular.woff2);
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "EB Garamond";
-  src: url(../fonts/EBGaramond-Italic.woff2);
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-  font-feature-settings: "swsh" 1;
-}
-
 /* CSS based on Tufte */
 html {
   font-size: 15px;
@@ -654,4 +619,14 @@ blockquote {
   /* MAKE BLOCK QUOTE ALIGNED WITH TEXT BLOCK ON MOBILE */
   margin-left: var(--indent) !important;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 760px) {
+  blockquote {
+  margin-left: 0 !important;
+  margin-bottom: 0rem;
+  }
+  blockquote > p {
+    margin-bottom: 1.15rem;
+  }
 }
